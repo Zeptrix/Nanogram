@@ -119,7 +119,7 @@ public class Board extends JPanel implements MouseListener{
 	public boolean checkWinner(){
 		for(int[] row : board)
 			for(int column : row)
-				if(column != 0)
+				if(column == 1)
 					return false;
 
 		return true;
