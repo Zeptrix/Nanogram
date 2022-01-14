@@ -16,8 +16,8 @@ public class Board extends JPanel implements MouseListener{
 	private String[] rowText;
 	private String[] columnText;
 	private double accuracy;
-	public static boolean initialRowPrint = true;
-	public static boolean initialColumnPrint = true;
+	public static boolean initialRowPrint;
+	public static boolean initialColumnPrint;
 
 	public Board(){
 		setPreferredSize(new Dimension(605, 605));
@@ -30,6 +30,8 @@ public class Board extends JPanel implements MouseListener{
 		rowText = new String[5];
 		columnText = new String[5];
 		accuracy = 0;
+		initialRowPrint = true;
+		initialColumnPrint = true;
 	}
 	public void initializeBoard(int[][] board) {
 		for(int i = 0; i < board.length; i++)
@@ -117,7 +119,7 @@ public class Board extends JPanel implements MouseListener{
 	public boolean checkWinner(){
 		for(int[] row : board)
 			for(int column : row)
-				if(column == 1)
+				if(column != 0)
 					return false;
 
 		return true;
